@@ -9,12 +9,12 @@ class CalculatorTest {
     @Test
     void add_devrait_calculer_la_somme_de_deux_int() {
         // GIVEN
+        Calculator calc = new Calculator();
         int opG = 2;
         int opD = 5;
         int resultat_attendu = opG + opD;
 
         // WHEN
-        Calculator calc = new Calculator();
         int resultat_class = calc.add(opG, opD);
 
         // THEN
@@ -25,12 +25,12 @@ class CalculatorTest {
     @Test
     void add_devrait_calculer_la_division_de_deux_int() {
         // GIVEN
+        Calculator calc = new Calculator();
         int opG = 10;
         int opD = 5;
         int resultat_attendu = opG / opD;
 
         // WHEN
-        Calculator calc = new Calculator();
         int resultat_class = calc.divide(opG, opD);
 
         // THEN

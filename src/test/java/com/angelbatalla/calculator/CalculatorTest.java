@@ -1,15 +1,28 @@
 package com.angelbatalla.calculator;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CalculatorTest {
 
+    Calculator calc;
+
+    @BeforeEach
+    void setUp() {
+        calc = new Calculator();
+    }
+
+    @AfterEach
+    void tearDown() {
+        calc = null;
+    }
+
     @Test
     void add_devrait_calculer_la_somme_de_deux_int() {
         // GIVEN
-        Calculator calc = new Calculator();
         int opG = 2;
         int opD = 5;
         int resultat_attendu = opG + opD;
@@ -25,7 +38,6 @@ class CalculatorTest {
     @Test
     void add_devrait_calculer_la_division_de_deux_int() {
         // GIVEN
-        Calculator calc = new Calculator();
         int opG = 10;
         int opD = 5;
         int resultat_attendu = opG / opD;

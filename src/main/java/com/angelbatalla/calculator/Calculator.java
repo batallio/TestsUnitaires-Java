@@ -6,6 +6,5 @@ public class Calculator {
     }
 
     public static int divide(int opG, int opD) {
-
     }
 }

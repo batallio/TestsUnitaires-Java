@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.Set;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CalculatorTest {
@@ -38,7 +40,7 @@ class CalculatorTest {
     }
 
     @Test
-    void add_devrait_calculer_la_division_de_deux_int() {
+    void divide_devrait_calculer_la_division_de_deux_int() {
         // GIVEN
         int opG = 10;
         int opD = 5;
@@ -64,6 +66,34 @@ class CalculatorTest {
 
         // WHEN
         int resultat_class = calc.add(opG, opD);
+
+        // THEN
+        assertThat(resultat_class).isNotNull()
+                .isEqualTo(resultat_attendu);
+    }
+
+    @Test
+    void ensembleChiffres_devrait_retourner_set_avec_chiffres_composant_un_int_positive () {
+        // GIVEN
+        int monInt = 7679;
+        Set<Integer> resultat_attendu = Set.of(6, 9, 7);
+
+        // WHEN
+        Set<Integer> resultat_class = calc.ensembleChiffres(monInt);
+
+        // THEN
+        assertThat(resultat_class).isNotNull()
+                .isEqualTo(resultat_attendu);
+    }
+
+    @Test
+    void ensembleChiffres_devrait_retourner_set_avec_chiffres_composant_un_int_negative () {
+        // GIVEN
+        int monInt = -11;
+        Set<Integer> resultat_attendu = Set.of(1);
+
+        // WHEN
+        Set<Integer> resultat_class = calc.ensembleChiffres(monInt);
 
         // THEN
         assertThat(resultat_class).isNotNull()

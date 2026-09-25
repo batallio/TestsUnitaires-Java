@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class CalculatorTest {
     Calculator calc;
@@ -52,6 +53,18 @@ class CalculatorTest {
         // THEN
         assertThat(resultat_class).isNotNull()
                 .isEqualTo(resultat_attendu);
+    }
+
+    @Test
+    void divide_devrait_lancer_exception_div_entre_zero() {
+        // GIVEN
+        int opG = 10;
+        int opD = 0;
+
+        // WHEN & THEN
+        assertThatThrownBy(() -> calc.divide(opG, opD))
+                .isInstanceOf(ArithmeticException.class)
+                .hasMessage("Division entre zero.");
     }
 
     // https://docs.junit.org/5.14.1/writing-tests/parameterized-classes-and-tests.html

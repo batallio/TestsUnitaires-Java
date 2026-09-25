@@ -9,7 +9,14 @@ public class Calculator {
         return opG + opD;
     }
 
-    public static int divide(int opG, int opD) { return opG / opD; }
+    public static int divide(int opG, int opD) {
+
+        if (opD == 0) {
+            throw new ArithmeticException("Division entre zero.");
+        }
+
+        return opG / opD;
+    }
 
     public Set<Integer> ensembleChiffres(int pNombre) {
         // Convert the absolute value of the number to a string to handle negative numbers safely
